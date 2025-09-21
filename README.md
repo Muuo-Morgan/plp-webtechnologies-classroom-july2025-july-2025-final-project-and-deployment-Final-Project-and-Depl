@@ -12,14 +12,10 @@
 4. Page-by-page layout sketches & key components
 5. Navigation map and internal linking
 6. Content inventory (what we need)
-7. Personas & user journeys
-8. Technical architecture & folder structure
+7. Technical architecture & folder structure
+8. Animation & interaction plan (including glowing title)
 9. Reusable UI components and patterns
-10. Animation & interaction plan (including glowing title)
-11. Accessibility, SEO & performance notes
-12. QA / testing checklist
-13. Deployment & deliverables
-14. Next steps (what I need from you)
+10. Deployment & deliverables
 
 ---
 
@@ -58,7 +54,7 @@ We will build **5 main pages**:
 4. **About** — mission, certifications, team, case studies, testimonials
 5. **Contact** — contact form, quick quote form, phone/email, map, office locations
 
-> Note: Product detail content can be implemented as separate pages (e.g., `product-panel-400w.html`) or as a client-side modal that fetches `data/products.json`. For SEO it is recommended to have at least one canonical product detail page per major product.
+> Note: Product detail content can be implemented as separate pages (e.g., `products.html`) 
 
 ---
 
@@ -71,20 +67,8 @@ Below are lightweight wireframes and the primary sections we will implement.
 * **Hero**: animated glowing title, short tagline, animated sun/solar arc visual, primary CTA `Explore products` and secondary CTA `Get a Quote`
 * **Highlights**: 3 cards (High-efficiency panels, Smart monitoring, End-to-end support)
 * **Featured Products**: horizontal scroll / carousel of top 3 products
-* **How it works**: 3-step illustrated process (Survey → Install → Maintain)
-* **Case study / testimonial**: 1-2 rotating customer stories
+* **How it works**:
 * **Footer**: newsletter, quick links, social
-
-**ASCII wireframe:**
-
-```
-[Header: Logo | Nav | CTA]
-[Hero: Glowing title | animated sun | CTA buttons]
-[3 Feature Cards | Quick product carousel]
-[How it works (3 steps)]
-[Case study / testimonials]
-[Footer]
-```
 
 ### PRODUCTS — purpose: show product range & link to details
 
@@ -93,7 +77,7 @@ Below are lightweight wireframes and the primary sections we will implement.
 * **Product grid**: product card (image, title, short specs, `Request quote`/`View details`)
 * **Pagination / load-more**
 
-**Key features:** image gallery, lazy-loading images, `Download spec sheet` link on each product detail.
+**Key features:** image gallery, lazy-loading images
 
 ### SERVICES — purpose: sell packages & explain process
 
@@ -105,9 +89,7 @@ Below are lightweight wireframes and the primary sections we will implement.
 ### ABOUT — purpose: credibility
 
 * **Mission & values**
-* **Certifications / partners logos**
-* **Team**
-* **Case studies**: before/after stats
+* **Case studies**
 
 ### CONTACT — purpose: capture leads
 
@@ -130,15 +112,6 @@ Primary navigation (header) links to the five main pages. The footer repeats lin
 
 **Simple sitemap:**
 
-```
-/ (home)
-/products (products list)
-  /products/:slug (product detail)  <-- recommended for SEO
-/services
-/about
-/contact
-```
-
 ---
 
 ## 6. Content inventory (what we need)
@@ -147,7 +120,7 @@ Organize content before coding — this speeds implementation.
 
 **Brand assets**
 
-* Logo (vector / SVG) and alternate variations (light/dark)
+* Logo (vector and alternate variations (light/dark)
 * Brand color hexes, typography choices (web fonts)
 
 **Per-page content**
@@ -168,34 +141,7 @@ Organize content before coding — this speeds implementation.
 
 ---
 
-## 7. Personas & user journeys
-
-Below are common journeys we’ll design for so information architecture supports conversion.
-
-### Persona A — Sarah, homeowner (goal: get quote)
-
-1. Lands on Home via search
-2. Reads hero + features → clicks `Explore products`
-3. Compares `Solar Panel — 400W` → opens product detail
-4. Clicks `Request a quote` → prefilled quote modal → submits contact
-5. Redirect to Thank You / email confirmation
-
-### Persona B — Daniel, facility manager (goal: verify specs)
-
-1. Arrives on Products via targeted ad
-2. Filters `Inverters` → opens 5kW inverter page
-3. Downloads spec sheet PDF and contacts sales via contact form
-
-### Persona C — Installer (goal: partnership info)
-
-1. Visits About page, reads partner program
-2. Uses contact form specifically for partnerships (selects ‘partner inquiry’)
-
-Documenting these journeys helps place the CTAs and decide what data to show on each page.
-
----
-
-## 8. Technical architecture & folder structure
+## 7. Technical architecture & folder structure
 
 **Tech stack:** Plain HTML5 + modern CSS (custom properties + small utility classes) + vanilla JS. Optional: small build step (Parcel / Vite) for minification, but not required for first pass.
 
@@ -208,29 +154,23 @@ mm-regeneration-skies/
 ├─ services.html               # Services
 ├─ about.html                  # About & case studies
 ├─ contact.html                # Contact / Quote
-├─ product/                    # optional product detail pages
-│   └─ panel-400w.html
 ├─ assets/
 │   ├─ img/
 │   ├─ logos/
-│   └─ pdfs/
 ├─ css/
 │   └─ main.css
 ├─ js/
 │   └─ main.js
-├─ data/
-│   └─ products.json
 └─ README.md
 ```
 
 **Notes:**
 
 * Put shared styles & components in `css/main.css` and `js/main.js`.
-* Use `data/products.json` to seed product pages if you prefer to render client-side or to keep content DRY.
 
 ---
 
-## 9. Reusable UI components and patterns
+## 8. Reusable UI components and patterns
 
 * **Header** — brand, nav, contact CTA
 * **Hero** — animated heading with small subtitle and CTAs
@@ -258,7 +198,7 @@ Animations should be tasteful and not harm performance.
 
 ---
 
-## 11. Accessibility, SEO & performance notes
+## 9. Accessibility, SEO & performance notes
 
 **Accessibility (A11y)**
 
@@ -274,37 +214,16 @@ Animations should be tasteful and not harm performance.
 * Open Graph tags for social sharing
 * Use structured data for products (JSON-LD) where appropriate
 * Human-readable URLs and meaningful `h1` on each page
-
-**Performance**
-
-* Use optimized images (WebP fallback, responsive `srcset`)
-* Lazy-load non-critical images with `loading="lazy"`
-* Minify CSS & JS for production
-* Use caching headers when deployed
-
 ---
 
-## 12. QA / testing checklist
-
-* [ ] Responsive at breakpoints: 320, 480, 768, 1024, 1440
-* [ ] Keyboard navigation across the site
-* [ ] Modal focus trap and ESC close
-* [ ] All forms submit and validation work (client-side and server-side stubs)
-* [ ] Links and downloads (PDF) working
-* [ ] Lighthouse audit: accessibility, performance, best practices
-* [ ] Cross-browser checks: Chrome, Firefox, Edge, Safari (mobile and desktop)
-
----
-
-## 13. Deployment & deliverables
+## 10. Deployment & deliverables
 
 **Deliverables for the first build (Phase A):**
 
 * 5 HTML pages (Home, Products, Services, About, Contact)
 * `css/main.css` and `js/main.js` (minified versions for production)
 * `assets/` with images and datasheets
-* `data/products.json` (seed data)
-* `README.md` (this document)
+* `README.md` 
 
 **Recommended deployment options:**
 
@@ -312,27 +231,7 @@ Animations should be tasteful and not harm performance.
 * Netlify / Vercel (drag & drop or connect to repo for continuous deploy)
 
 ---
-### Appendix: Example meta & JSON-LD snippet (for developer reference)
 
-**Meta example (Products page)**
 
-```html
-<title>Products — The MM Regeneration Skies</title>
-<meta name="description" content="High-efficiency solar panels, hybrid inverters and battery backups. Request a quote today." />
-<meta property="og:title" content="Products — The MM Regeneration Skies" />
-```
 
-**Product JSON-LD template (structured data)**
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Solar Panel 400W",
-  "image": "https://example.com/assets/img/panel-400w.jpg",
-  "description": "High-efficiency monocrystalline 400W panel",
-  "brand": "The MM Regeneration Skies",
-  "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "199" }
-}
-```
 
