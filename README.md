@@ -1,4 +1,4 @@
-# README — The MM Regeneration Skies
+# The MM Regeneration Skies
 
 **Part 1 — Planning & Organizing a Multipage Website**
 
@@ -312,21 +312,6 @@ Animations should be tasteful and not harm performance.
 * Netlify / Vercel (drag & drop or connect to repo for continuous deploy)
 
 ---
-
-## 14. Next steps — what I need from you
-
-Please provide the following so I can start building the site:
-
-* High-resolution **logo** (SVG preferred) and color palette (primary/secondary)
-* 3–6 **product items** with: name, short description, 3 images each (min 1200px), spec sheet PDFs
-* Company contact info (email, phone, office address) and social links
-* Any existing **brand copy** (mission, tagline) and case studies/testimonials
-* Preference for fonts (or allow me to pick a modern web-safe pairing)
-
-Once you drop these assets I will proceed to Part 2: Design mockups & detailed wireframes and then Part 3: implementation of the 5 pages.
-
----
-
 ### Appendix: Example meta & JSON-LD snippet (for developer reference)
 
 **Meta example (Products page)**
