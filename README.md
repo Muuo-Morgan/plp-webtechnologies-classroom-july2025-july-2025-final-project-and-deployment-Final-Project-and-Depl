@@ -1,5 +1,8 @@
 # The MM Regeneration Skies
 
+# Deployment Link : https://rrregeneration.netlify.app/
+
+
 **Part 1 — Planning & Organizing a Multipage Website**
 
 > Purpose: This README documents the planning stage for a five‑page, accessible, high‑impact website for **The MM Regeneration Skies** — a solar energy company offering panels, inverters, batteries, installation and maintenance. It shows the site structure, page layouts, user journeys and the content & technical requirements needed before coding.
